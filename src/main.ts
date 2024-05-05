@@ -3,5 +3,4 @@ import 'reset.css'
 import App from './App.vue'
 
 createApp(App).mount('#app')
-
-
+console.log("修改了")

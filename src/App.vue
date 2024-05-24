@@ -1,7 +1,8 @@
 <template>
-    <div>
-        <router-view></router-view>
-    </div>
+    <global-menu></global-menu>
+    <global-header></global-header>
+    <router-view></router-view>
+    <global-footer></global-footer>
 </template>
 
 <script setup lang="ts">

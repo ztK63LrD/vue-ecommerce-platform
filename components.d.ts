@@ -7,6 +7,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
+    ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
+    GlobalFooter: typeof import('./src/components/global/global-footer.vue')['default']
+    GlobalHeader: typeof import('./src/components/global/global-header.vue')['default']
+    GlobalMenu: typeof import('./src/components/global/global-menu.vue')['default']
+    Header: typeof import('./src/components/global/header.vue')['default']
     Loading: typeof import('./src/components/global/loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

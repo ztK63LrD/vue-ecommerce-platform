@@ -10,10 +10,14 @@ import globalComponents from '@/components'
 import router from '@/router'
 // 导入仓库
 import pinia from '@/store'
+// 导入自定义指令插件
+import { lazyPlugin } from '@/directives'
+
 
 createApp(App)
     .use(ElementPlus, { locale: zhCn }) // 配置中文国际化
     .use(globalComponents) // 安装全局路由组件
     .use(router) // 安装路由
     .use(pinia) // 安装仓库
+    .use(lazyPlugin) // 安装自定义指令
     .mount('#app')

@@ -1,0 +1,30 @@
+{
+    "code": "1",
+    "msg": "操作成功",
+    "result": [
+        {
+            "id": "1005000",
+            "name": "居家",
+            "picture": "http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-05-06/201516e3-25d0-48f5-bcee-7f0cafb14176.png",
+            "children": [
+                {
+                    "id": "1005999003",
+                    "name": "居家生活用品",
+                    "picture": "http://yjy-xiaotuxian-dev.oss-cn-beijing.aliyuncs.com/picture/2021-04-22/7f6a7b20-7902-4b43-b9c5-f33151ef1334.jpg?quality=95&imageView",
+                    "children": null,
+                    "goods": null
+                }
+            ],
+            "goods": [
+                {
+                    "id": "3997602",
+                    "name": "暖腰暖腹暖胃，蕲艾暖宫腰带",
+                    "desc": "暖宫暖腰暖胃，大面积热敷≈3片暖宝宝",
+                    "price": "49.00",
+                    "picture": "https://yanxuan-item.nosdn.127.net/9892cc73945da1591fa5259ad076b23c.jpg",
+                    "orderNum": null
+                }
+            ]
+        }
+    ]
+}

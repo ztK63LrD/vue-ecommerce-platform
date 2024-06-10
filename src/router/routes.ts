@@ -13,7 +13,14 @@ export const constantRoute = [
       name: 'home',
       component: () => import('@/views/home/index.vue'),
       meta: {
-        title: '后台页面',
+        title: '首页',
+      },
+    },
+    { 
+      path: '/category/:id',
+      component: () => import('@/views/home/category/index.vue'),
+      meta: {
+        title: '分类页',
       },
     },
     {

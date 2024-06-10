@@ -5,8 +5,8 @@
             <div class="container">
                 <dl>
                     <dt>客户服务</dt>
-                    <dd><i class="iconfont icon-kefu"></i> 在线客服</dd>
-                    <dd><i class="iconfont icon-question"></i> 问题反馈</dd>
+                    <dd><i class="iconfont icon-kefu1"></i> 在线客服</dd>
+                    <dd><i class="iconfont icon-wentifankui"></i> 问题反馈</dd>
                 </dl>
                 <dl>
                     <dt>关注我们</dt>
@@ -19,7 +19,7 @@
                     <dd class="download">
                         <span>扫描二维码</span>
                         <span>立马下载APP</span>
-                        <a href="javascript:;">下载页面</a>
+                        <div>下载页面</div>
                     </dd>
                 </dl>
                 <dl>
@@ -32,31 +32,31 @@
         <div class="extra">
             <div class="container">
                 <div class="slogan">
-                    <a href="javascript:;">
-                        <i class="iconfont icon-footer01"></i>
+                    <div>
+                        <i class="iconfont icon-409"></i>
                         <span>价格亲民</span>
-                    </a>
-                    <a href="javascript:;">
-                        <i class="iconfont icon-footer02"></i>
+                    </div>
+                    <div>
+                        <i class="iconfont icon-huoche-daishouhuo"></i>
                         <span>物流快捷</span>
-                    </a>
-                    <a href="javascript:;">
-                        <i class="iconfont icon-footer03"></i>
+                    </div>
+                    <div>
+                        <i class="iconfont icon-yichujia"></i>
                         <span>品质新鲜</span>
-                    </a>
+                    </div>
                 </div>
                 <!-- 版权信息 -->
                 <div class="copyright">
-                    <p>
-                        <a href="javascript:;">关于我们</a>
-                        <a href="javascript:;">帮助中心</a>
-                        <a href="javascript:;">售后服务</a>
-                        <a href="javascript:;">配送与验收</a>
-                        <a href="javascript:;">商务合作</a>
-                        <a href="javascript:;">搜索推荐</a>
-                        <a href="javascript:;">友情链接</a>
-                    </p>
-                    <p>CopyRight © 小兔鲜儿</p>
+                    <ul>
+                        <li href="javascript:;">关于我们</li>
+                        <li href="javascript:;">帮助中心</li>
+                        <li href="javascript:;">售后服务</li>
+                        <li href="javascript:;">配送与验收</li>
+                        <li href="javascript:;">商务合作</li>
+                        <li href="javascript:;">搜索推荐</li>
+                        <li href="javascript:;">友情链接</li>
+                    </ul>
+                    <div class="author">CopyRight © author</div>
                 </div>
             </div>
         </div>
@@ -65,20 +65,21 @@
 
 <style scoped lang='scss'>
 .app_footer {
+    margin-top: 20px;
     overflow: hidden;
-    background-color: #f5f5f5;
-    padding-top: 20px;
 
     .contact {
-        background: #fff;
+        background: #f5f5f5;
 
         .container {
-            padding: 60px 0 40px 25px;
+            padding: 20px 10px 0px;
             display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         dl {
-            height: 190px;
+            height: 160px;
             text-align: center;
             padding: 0 72px;
             border-right: 1px solid #f2f2f2;
@@ -100,10 +101,10 @@
         }
 
         dd {
-            margin: 36px 12px 0 0;
+            margin: 16px 12px 0 0;
             float: left;
             width: 92px;
-            height: 92px;
+            height: 72px;
             padding-top: 10px;
             border: 1px solid #ededed;
 
@@ -111,11 +112,13 @@
                 font-size: 36px;
                 display: block;
                 color: #666;
+                margin-bottom: 5px;
             }
 
             &:hover {
                 .iconfont {
                     color: $xtxColor;
+                    cursor: pointer;
                 }
             }
 
@@ -129,22 +132,27 @@
             height: 92px;
             padding: 7px;
             border: 1px solid #ededed;
+
+            img {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         .download {
-            padding-top: 5px;
+            padding-top: 10px;
             font-size: 14px;
             width: auto;
             height: auto;
             border: none;
+            cursor: pointer;
 
             span {
                 display: block;
+                margin-bottom: 15px;
             }
 
-            a {
-                display: block;
-                line-height: 1;
+            div {
                 padding: 10px 25px;
                 margin-top: 5px;
                 color: #fff;
@@ -171,58 +179,68 @@
 
     .extra {
         background-color: #333;
-    }
 
-    .slogan {
-        height: 178px;
-        line-height: 58px;
-        padding: 60px 100px;
-        border-bottom: 1px solid #434343;
-        display: flex;
-        justify-content: space-between;
+        .container {
+            width: 100%;
+            height: 100%;
+            .slogan {
+                height: 100px;
+                padding: 20px 100px;
+                border-bottom: 1px solid #434343;
+                display: flex;
+                justify-content: space-between;
 
-        a {
-            height: 58px;
-            line-height: 58px;
-            color: #fff;
-            font-size: 28px;
+                div {
+                    height: 58px;
+                    line-height: 58px;
+                    color: #fff;
+                    font-size: 28px;
 
-            i {
-                font-size: 50px;
-                vertical-align: middle;
-                margin-right: 10px;
-                font-weight: 100;
+                    i {
+                        font-size: 40px;
+                        vertical-align: middle;
+                        margin-right: 10px;
+                        font-weight: 100;
+                    }
+
+                    span {
+                        vertical-align: middle;
+                        text-shadow: 0 0 1px #333;
+                    }
+                }
             }
 
-            span {
-                vertical-align: middle;
-                text-shadow: 0 0 1px #333;
+            .copyright {
+                height: 70px;
+                margin-top: 40px;
+                text-align: center;
+                color: #999;
+                font-size: 15px;
+                box-sizing: border-box;
+
+                ul {
+                    display: flex;
+                    justify-content: center;
+
+                    li {
+                        border-right: 1px solid #999;
+                        padding: 0 10px;
+                        line-height: 1;
+                        color: #999;
+
+                        &:last-child {
+                            border-right: none;
+                        }
+                    }
+                }
+
+                .author {
+                    margin-top: 20px;
+                }
             }
         }
     }
 
-    .copyright {
-        height: 170px;
-        padding-top: 40px;
-        text-align: center;
-        color: #999;
-        font-size: 15px;
 
-        p {
-            line-height: 1;
-            margin-bottom: 20px;
-        }
-
-        a {
-            color: #999;
-            line-height: 1;
-            padding: 0 10px;
-            border-right: 1px solid #999;
-
-            &:last-child {
-                border-right: none;
-            }
-        }
-    }
 }
 </style>

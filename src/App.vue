@@ -9,4 +9,9 @@
 
 </script>
 
-<style scoped lang="scss"></style>
+<style lang="scss">
+* {
+    box-sizing: border-box;
+	text-decoration: none;
+}
+</style>

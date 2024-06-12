@@ -16,7 +16,6 @@ declare module 'vue' {
     GlobalHeader: typeof import('./src/components/global/global-header.vue')['default']
     GlobalMenu: typeof import('./src/components/global/global-menu.vue')['default']
     GoodsItem: typeof import('./src/components/global/goods-item.vue')['default']
-    Header: typeof import('./src/components/global/header.vue')['default']
     Loading: typeof import('./src/components/global/loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']

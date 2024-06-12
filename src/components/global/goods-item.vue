@@ -63,6 +63,7 @@ const props = defineProps({
             /* 使用省略号代替超出部分的文本 */
             max-width: 20ch;
             /* 设置最大宽度为8个字符长度 */
+            margin: 0 auto;
         }
 
 

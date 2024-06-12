@@ -27,7 +27,7 @@
                 </li>
             </ul>
         </div>
-        <div class="ref-goods" v-if="categoryData"v-for="item in categoryData.children" :key="item.id">
+        <div class="ref-goods" v-if="categoryData" v-for="item in categoryData.children" :key="item.id">
             <div class="ref-goods-item">
                 <div class="head">
                     <h3>- {{ item.name }}-</h3>
@@ -41,39 +41,15 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch } from "vue";
-import { useRoute } from "vue-router";
-// 导入接口函数
-import { reqGetCategory } from "@/api/category";
-import { reqGetBannerData } from '@/api/home'
-// 导入接口数据类型
-import type { CategoryListResult, CategoryList } from '@/api/category/type'
-import type { BannerData, bannerResult } from '@/api/home/type'
+import { watch } from "vue";
+import { useCategory } from "./composables/useCategory"
+import { useBanner } from "./composables/useBanner"
 
-// 获取路由实例对象
-const route = useRoute();
-// 分类数据
-let categoryData = ref<CategoryList>();
-// 轮播图数据
-let bannerList = ref<bannerResult[]>()
+const { categoryData } = useCategory()
+const { bannerList } = useBanner()
 
-// 获取分类数据
-const getCategory = async () => {
-    let res: CategoryListResult = await reqGetCategory(route.params.id as string)
-    categoryData.value = res.result
-}
-// 获取轮播图数据
-const getBannerData = async () => {
-    let res: BannerData = await reqGetBannerData({ distributionSite: '2' })
-    bannerList.value = res.result
-}
-
-watch(() => route.params.id, ()=> {
-    getCategory()
-}, { immediate: true })
-onMounted(() => {
-    getCategory()
-    getBannerData()
+watch(categoryData, () => {
+    console.log(categoryData.value)
 })
 </script>
 
@@ -102,8 +78,7 @@ onMounted(() => {
     }
     .sub-list {
         width: 100%;
-        height: 100%;
-        padding: 0 100px;
+        padding: 20px 100px;
         h3 {
             font-size: 28px;
             color: #666;
@@ -114,6 +89,7 @@ onMounted(() => {
         ul {
             display: flex;
             padding: 0 32px;
+            justify-content: space-around;
             flex-wrap: wrap;
             li {
                 width: 168px;
@@ -147,9 +123,8 @@ onMounted(() => {
             .head {
                 text-align: center;
                 color: #999;
-                font-size: 20px;
-                position: relative;
-                top: -20px;
+                font-weight: 700;
+                font-size: 25px;
             }
             .body {
                 display: flex;

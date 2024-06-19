@@ -23,6 +23,20 @@ export const constantRoute = [
         title: '分类页',
       },
     },
+    { 
+      path: '/category/sub/:id',
+      component: () => import('@/views/home/subCategory/index.vue'),
+      meta: {
+        title: '二级分类页面',
+      },
+    },
+    {
+      path: '/detail/:id',
+      component: () => import('@/views/home/details/index.vue'),
+      meta: {
+        title: '详情页',
+      },
+    },
     {
       path: '/404',
       name: '404',

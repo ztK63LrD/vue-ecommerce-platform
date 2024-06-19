@@ -3,7 +3,7 @@
         <Panel :title="'新鲜好物'" :sub-title="'新鲜出炉 品质靠谱'">
             <ul class="goods-list">
                 <li v-for="item in hotData" :key="item.id">
-                    <RouterLink to="/">
+                    <RouterLink :to="`/detail/${item.id}`">
                         <img :src="item.picture" :alt="item.alt">
                         <p class="name">{{ item.title }}</p>
                         <p class="desc">{{ item.alt }}</p>

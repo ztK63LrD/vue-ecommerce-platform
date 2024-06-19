@@ -9,15 +9,23 @@ declare module 'vue' {
   export interface GlobalComponents {
     ElBreadcrumb: typeof import('element-plus/es')['ElBreadcrumb']
     ElBreadcrumbItem: typeof import('element-plus/es')['ElBreadcrumbItem']
+    ElButton: typeof import('element-plus/es')['ElButton']
     ElCarousel: typeof import('element-plus/es')['ElCarousel']
     ElCarouselItem: typeof import('element-plus/es')['ElCarouselItem']
     ElPopconfirm: typeof import('element-plus/es')['ElPopconfirm']
+    ElTabPane: typeof import('element-plus/es')['ElTabPane']
+    ElTabs: typeof import('element-plus/es')['ElTabs']
     GlobalFooter: typeof import('./src/components/global/global-footer.vue')['default']
     GlobalHeader: typeof import('./src/components/global/global-header.vue')['default']
     GlobalMenu: typeof import('./src/components/global/global-menu.vue')['default']
     GoodsItem: typeof import('./src/components/global/goods-item.vue')['default']
+    ImageView: typeof import('./src/components/global/image-view.vue')['default']
     Loading: typeof import('./src/components/global/loading.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
+    Sku: typeof import('./src/components/global/sku.vue')['default']
+  }
+  export interface ComponentCustomProperties {
+    vInfiniteScroll: typeof import('element-plus/es')['ElInfiniteScroll']
   }
 }

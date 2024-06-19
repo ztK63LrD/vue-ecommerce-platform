@@ -36,7 +36,6 @@ const getNewData = async () => {
     let res: ProductData = await reqGetProductListData()
     productData.value = res.result
 }
-
 onMounted(() => {
     getNewData()
 })

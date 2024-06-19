@@ -20,7 +20,7 @@
             <h3>全部分类</h3>
             <ul>
                 <li v-if="categoryData" v-for="item in categoryData.children" :key="item.id">
-                    <RouterLink to="/">
+                    <RouterLink :to="`/category/sub/${item.id}`">
                         <img :src="item.picture" />
                         <p>{{ item.name }}</p>
                     </RouterLink>
@@ -49,7 +49,7 @@ const { categoryData } = useCategory()
 const { bannerList } = useBanner()
 
 watch(categoryData, () => {
-    console.log(categoryData.value)
+    // console.log(categoryData.value)
 })
 </script>
 

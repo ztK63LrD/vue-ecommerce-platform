@@ -65,10 +65,10 @@
                             <!-- sku组件 -->
                             <sku :goods="goods" @change="skuChange"></sku>
                             <!-- 数据组件 -->
-
+                            <el-input-number v-model="count" @change="countChange"></el-input-number>
                             <!-- 按钮组件 -->
                             <div>
-                                <el-button size="large" class="btn">
+                                <el-button size="large" class="btn" @click="addCart">
                                     加入购物车
                                 </el-button>
                             </div>
@@ -119,6 +119,7 @@ import { useRoute } from 'vue-router';
 
 let goods = ref<any>();
 let route = useRoute();
+const count = ref(1);
 
 // 调用获取商品详情的接口函数
 const getGoodsDetails = async () => {
@@ -127,8 +128,23 @@ const getGoodsDetails = async () => {
 }
 
 // 监听sku组件的change事件
+let skuObj: any = {}
 const skuChange = (sku: any) => {
-    console.log(sku)
+    skuObj = sku;
+}
+
+// 监听数量改变
+const countChange = (count: number) => {
+    console.log(count)
+}
+
+// 加入购物车
+const addCart = () => {
+    if (skuObj.skuId) { 
+        // 规格已选择，触发action
+    } else {
+        ElMessage.warning('请选择规格');
+    }
 }
 
 onMounted(() => {

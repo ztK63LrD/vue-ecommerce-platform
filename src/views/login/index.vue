@@ -3,12 +3,10 @@
         <header class="login-header">
             <div class="container m-top-20">
                 <h1 class="logo">
-                    <RouterLink to="/">小兔鲜</RouterLink>
+                    <RouterLink to="/">智融优品</RouterLink>
                 </h1>
                 <RouterLink class="entry" to="/">
                     进入网站首页
-                    <i class="iconfont icon-angle-right"></i>
-                    <i class="iconfont icon-angle-right"></i>
                 </RouterLink>
             </div>
         </header>
@@ -19,19 +17,19 @@
                 </nav>
                 <div class="account-box">
                     <div class="form">
-                        <el-form label-position="right" label-width="60px" status-icon>
-                            <el-form-item label="账户">
-                                <el-input />
+                        <el-form ref="formRef" :model="formData" :rules="rules" label-position="right" label-width="60px" status-icon>
+                            <el-form-item label="账户" prop="account">
+                                <el-input v-model="formData.account" />
                             </el-form-item>
-                            <el-form-item label="密码">
-                                <el-input />
+                            <el-form-item label="密码" prop="password"> 
+                                <el-input v-model="formData.password" />
                             </el-form-item>
-                            <el-form-item label-width="22px">
-                                <el-checkbox size="large">
+                            <el-form-item label-width="22px" prop="agree">
+                                <el-checkbox size="large" v-model="formData.agree">
                                     我已同意隐私条款和服务条款
                                 </el-checkbox>
                             </el-form-item>
-                            <el-button size="large" class="subBtn">点击登录</el-button>
+                            <el-button size="large" class="subBtn" @click="handleDologin">点击登录</el-button>
                         </el-form>
                     </div>
                 </div>
@@ -49,20 +47,72 @@
                     <a href="javascript:;">搜索推荐</a>
                     <a href="javascript:;">友情链接</a>
                 </p>
-                <p>CopyRight &copy; 小兔鲜儿</p>
+                <p>CopyRight &copy; 智融优品</p>
             </div>
         </footer>
     </div>
 </template>
 
 <script setup lang="ts">
+import { ref } from 'vue';
+import { useRouter } from 'vue-router';
+import { useUserStore } from '@/store/modules/user';
 
+// 表单实例
+let formRef = ref<any>(null);
+let router = useRouter();
+const userStore = useUserStore();
+// 准备表单对象
+let formData = ref({
+    account: 'xiaotuxian001',
+    password: '123456',
+    agree: true
+})
+// 准备规则对象
+const rules = {
+    account: [{ required: true, message: '用户名不能为空', trigger: 'blur' }],
+    password: [
+        { required: true, message: '密码不能为空', trigger: 'blur' },
+        { min: 6, max: 14, message: '长度在6-14之间', trigger: 'blur' },
+    ],
+    agree: [
+        {
+            validator: (_: any, value: Boolean, callback: Function) => {
+                // 自定义校验规则
+                if (value) {
+                    callback();
+                } else {
+                    callback(new Error('请勾选协议'))
+                }
+            }
+        }
+    ]
+}
+
+/*  用户名密码
+    "account": "xiaotuxian001",
+    "password": "123456"
+*/
+
+// 登录点击事件
+const handleDologin = () => {
+    const { account, password } = formData.value;
+    // 调用实例方法
+    formRef.value?.validate(async (valid: boolean) => {  
+        if (valid) {
+            await userStore.getUserInfo({ account, password })
+            // 提示用户
+            ElMessage({ type: 'success', message: '登录成功' })
+            router.replace('/')
+        }
+    })
+}
 </script>
 
 <style scoped lang='scss'>
 .login-header {
     background: #fff;
-    border-bottom: 1px solid #e4e4e4;
+    border-bottom: 1px solid #e4e4e4; 
 
     .container {
         display: flex;
@@ -78,7 +128,7 @@
             height: 132px;
             width: 100%;
             text-indent: -9999px;
-            background: url("@/assets/images/logo.png") no-repeat center 18px / contain;
+            background: url("@/assets/images/logo.png") no-repeat center 0px / contain;
         }
     }
 

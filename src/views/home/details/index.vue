@@ -65,7 +65,7 @@
                             <!-- sku组件 -->
                             <sku :goods="goods" @change="skuChange"></sku>
                             <!-- 数据组件 -->
-                            <el-input-number v-model="count" @change="countChange"></el-input-number>
+                            <el-input-number :min="1" :max="99" v-model="count" @change="countChange"></el-input-number>
                             <!-- 按钮组件 -->
                             <div>
                                 <el-button size="large" class="btn" @click="addCart">
@@ -116,10 +116,12 @@ import DetailsHot from './components/detail-hot.vue';
 // 导入接口函数
 import { reqGetDetails } from '@/api/details';
 import { useRoute } from 'vue-router';
+import { useCartStore } from '@/store/modules/cart';
 
 let goods = ref<any>();
 let route = useRoute();
 const count = ref(1);
+const cartStore = useCartStore();
 
 // 调用获取商品详情的接口函数
 const getGoodsDetails = async () => {
@@ -134,14 +136,24 @@ const skuChange = (sku: any) => {
 }
 
 // 监听数量改变
-const countChange = (count: number) => {
-    console.log(count)
+const countChange = (num: number) => {
+    count.value = num;
 }
 
 // 加入购物车
 const addCart = () => {
     if (skuObj.skuId) { 
         // 规格已选择，触发action
+        cartStore.addCart({
+            id: goods.value.id,
+            name: goods.value.name,
+            picture: goods.value.mainPictures[0],
+            price: goods.value.price,
+            count: count.value,
+            skuId: skuObj.skuId,
+            attrsText: skuObj.specsText,
+            selected: true
+        })
     } else {
         ElMessage.warning('请选择规格');
     }

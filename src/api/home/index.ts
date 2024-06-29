@@ -29,7 +29,6 @@ export const reqGetBannerData = (params: any = {}) => {
     })
 }
 
-
 // 获取首页新鲜好物数据
 export const reqGetNewData = () =>
     http.get<any, NewData>(API.NEW)

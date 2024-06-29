@@ -38,6 +38,57 @@ export const constantRoute = [
       },
     },
     {
+      path: '/cartlist',
+      component: () => import('@/views/home/cartList/index.vue'),
+      meta: {
+        title: '购物车页面',
+      },
+    },
+    {
+      path: '/checkout',
+      component: () => import('@/views/home/checkout/index.vue'),
+      meta: {
+        title: '结算页面',
+      },
+    },
+    {
+      path: '/pay',
+      component: () => import('@/views/home/pay/index.vue'),
+      meta: {
+        title: '支付页面',
+      },
+    },
+    {
+      path: '/paycallback',
+      component: () => import('@/views/home/pay/paycallback.vue'),
+      meta: {
+        title: '支付回调页面',
+      },
+    },
+    {
+      path: '/member',
+      component: () => import('@/views/home/member/index.vue'),
+      meta: {
+        title: '会员中心',
+      },
+      children: [
+        {
+          path: 'user',
+          component: () => import('@/views/home/member/memberInfo/index.vue'),
+          meta: {
+            title: '用户信息',
+          },
+        },
+        {
+          path: 'order',
+          component: () => import('@/views/home/member/order/index.vue'),
+          meta: {
+            title: '订单列表',
+          },
+        }
+      ]
+    },
+    {
       path: '/404',
       name: '404',
       component: () => import('@/views/404/index.vue'),
